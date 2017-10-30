@@ -1,4 +1,6 @@
 title: Patrick Chapman Blog
 github_username: patrickjchap
-markdown: rdiscount
 theme: jekyll-theme-slate
+
+layout: default
+comments: true
