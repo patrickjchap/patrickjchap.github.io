@@ -52,9 +52,8 @@
       <section id="main_content" class="inner">
         {{ content }}
       </section>
-    </div>
       
-      
+      <section class="inner">
       <div id="disqus_thread"></div>
 <script>     
  /**
@@ -73,10 +72,16 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
+      
     </div>
+      </section>
 
     
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+      
+      
+      
 
     {% if site.google_analytics %}
       <script type="text/javascript">
