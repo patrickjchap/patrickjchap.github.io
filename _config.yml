@@ -1,8 +1,9 @@
 title: Patrick Chapman Blog
 github_username: patrickjchap
-theme: jekyll-theme-slate
+remote_theme: pages-themes/slate@v0.2.0
 
 layout: default
 comments: true
 plugins:
   - jekyll-tabs
+  - jekyll-remote-theme
