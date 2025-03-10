@@ -1,25 +1,33 @@
 # LLELLM: Bug Detection
 
-## Plots
+## Bug Types
+
+{% tabs bugs %}
+
+{%tab bugs npe %}
 
 {% tabs graphs %}
 
-{% tab graphs php %}
+{% tab graphs diff %}
 ```php
 var_dump('hello');
 ```
 {% endtab %}
 
-{% tab graphs js %}
+{% tab graphs trace %}
 ```javascript
 console.graphs('hello');
 ```
 {% endtab %}
 
-{% tab graphs ruby %}
+{% tab graphs total %}
 ```javascript
 pputs 'hello'
 ```
+{% endtab %}
+
+{% endtabs %}
+
 {% endtab %}
 
 {% endtabs %}
