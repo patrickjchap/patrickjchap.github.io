@@ -1,3 +1,3 @@
-group :jekyll-plugins do
+group :jekyll_plugins do
   gem "jekyll-tabs"
 end
