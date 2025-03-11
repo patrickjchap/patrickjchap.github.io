@@ -31,8 +31,8 @@ pputs 'hello'
 
 ### Table Data 
 
-<input type="text" id="search" placeholder="Type to search">
-
+<table id="detectiontable" class="display"></table>
+<!--
 <label for="before">Before date filter:</label>
 <input
   type="date"
@@ -190,7 +190,6 @@ pputs 'hello'
  
   </tbody>
 </table>
-*/
 
 {% endtab %}
 
@@ -201,3 +200,4 @@ pputs 'hello'
 {% endtab %}
 
 {% endtabs %}
+-->
