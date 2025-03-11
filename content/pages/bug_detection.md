@@ -56,7 +56,9 @@ pputs 'hello'
 
 {% tab method Baseline %}
 
-<table id="table" class="sortable">
+<table id="detectiontable" class="display"></table>
+
+/*<table id="table" class="display">
  <thead>
     <tr>
         <th> Artifact Image Tag </th>
@@ -188,6 +190,7 @@ pputs 'hello'
  
   </tbody>
 </table>
+*/
 
 {% endtab %}
 
