@@ -9,10 +9,13 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="/src/js/dataTables.rowsGroup.js"></script>
 
 {% seo %}
   </head>
   <link rel="stylesheet" href="/content/css/tabs.css">
+  <link rel="stylesheet", href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
 
   <body>
 
@@ -55,6 +58,7 @@
     </div>
       
   <script src="/src/js/tabs.js"></script>
+  <script src="/src/js/tables.js"></script>
   <script src="/src/js/sorttable.js"></script>
   </body>
 </html>
