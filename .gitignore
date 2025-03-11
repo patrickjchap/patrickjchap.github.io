@@ -2,6 +2,8 @@
 **/comment.cut
 htmlcov
 .coverage
+*.swp
+*.swo
 
 ## Bazel
 # Ignore all bazel-* symlinks. There is no full list since this can change
