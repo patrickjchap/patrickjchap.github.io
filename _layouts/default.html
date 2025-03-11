@@ -8,6 +8,7 @@
     <meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 {% seo %}
   </head>
@@ -23,6 +24,13 @@
           <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
           <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
+          <div class="topnav">
+            <a id="index" href="/index.html">Home</a>
+            <a id="eval" href="/content/pages/bug_detection.html">Evaluation Data</a>
+            <a id="method" href="/content/pages/methodology.html">Methodology</a>
+            <a id="related" href="/content/pages/related.html">Related</a>
+          </div>
+
           {% if site.show_downloads %}
             <section id="downloads">
               <a class="zip_download_link" href="{{ site.github.zip_url }}">Download this project as a .zip file</a>
@@ -33,6 +41,7 @@
     </div>
       
 
+    {{content}}
 
     
     <!-- FOOTER  -->
@@ -44,12 +53,8 @@
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-  
-  
- 
-
       
-  {{content}}
   <script src="/src/js/tabs.js"></script>
+  <script src="/src/js/sorttable.js"></script>
   </body>
 </html>
