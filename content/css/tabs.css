@@ -1,3 +1,7 @@
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
 .tab {
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +21,7 @@
     display: block;
     text-align: center;
     padding: 9px 20px;
-    color: #999;
+    color: #fff;
     border-bottom: 2px solid transparent;
     border-bottom-color: transparent;
     font-size: 12px;
@@ -27,7 +31,7 @@
 }
 
 .tab > .active > a {
-    color:#222;
+    color:#0aeaf5;
     border-color: #1e87f0;
 }
 
@@ -53,7 +57,7 @@
     min-width: 250px;
     margin-left: -125px;
     background-color: #333;
-    color: #fff;
+    color: #999;
     text-align: center;
     border-radius: 2px;
     padding: 16px;
