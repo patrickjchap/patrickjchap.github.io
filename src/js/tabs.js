@@ -308,3 +308,7 @@ if (window.location.pathname.includes('related')) {
   var $ele = document.querySelector('#related');
   $ele.classList.add('active');
 };
+
+$(document).ready( function() {
+  $('#table').DataTable();
+});
