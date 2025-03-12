@@ -1,9 +1,8 @@
 ---
 layout: default
-title: Evaluation - Bug Detection
 ---
 
-# LLELLM: Bug Detection
+# Bug Detection
 
 ## Plots
 
