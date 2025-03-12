@@ -6,37 +6,43 @@ layout: default
 
 ## Plots
 
-{% tabs log %}
+{% tabs plots %}
 
-{% tab log Detection Rate - Code Diff %}
+{% tab plots Time Series Detection Rate - Code Diff %}
 
 <html> 
   <head> 
     <script> 
     $(function(){
-      $("#includedContent").load("/assets/html/test_timeline.html"); 
+      $("#includedContentDiff").load("/assets/html/test_diff_timeline.html"); 
     });
     </script> 
   </head> 
 
   <body> 
-     <div id="includedContent"></div>
+     <div id="includedContentDiff"></div>
   </body> 
 </html>
 
 
 {% endtab %}
 
-{% tab log Detection Rate - Stack Trace %}
-```javascript
-console.log('hello');
-```
-{% endtab %}
+{% tab plots Time Series Detection Rate - Stack Trace %}
 
-{% tab log Total Reports %}
-```javascript
-pputs 'hello'
-```
+<html> 
+  <head> 
+    <script> 
+    $(function(){
+      $("#includedContentTrace").load("/assets/html/test_trace_timeline.html"); 
+    });
+    </script> 
+  </head> 
+
+  <body> 
+     <div id="includedContentTrace"></div>
+  </body> 
+</html>
+
 {% endtab %}
 
 {% endtabs %}
