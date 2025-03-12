@@ -2,6 +2,7 @@ import json
 import os
 from datetime import datetime
 from itertools import cycle
+import numpy as np
 
 import pandas as pd
 import plotly.express as px
@@ -24,11 +25,39 @@ def generate_detection_rate_timeline(csv_filepath: str, output_path: str):
 		selected_df = df[df["Methodology"] == method]
 		print(selected_df)
 		fig.add_trace(
-			go.Scatter(name=method, x=list(selected_df["Commit Fix Date"]), y=list(selected_df["Reports in Diff"]), marker_color=next(palette)))
+			go.Scatter(
+                name=method,
+                x=list(selected_df["Commit Fix Date"]),
+                y=list(selected_df["Reports in Diff"]),
+                customdata=np.stack(
+					(
+						selected_df["Artifact Image Tag"],
+						selected_df["Times Ran"],
+						selected_df["URL"],
+					),
+					axis=1
+				),
+				hovertemplate="<br>".join([
+					"Commit Fix Date: %{x}",
+					"Detection Rate: %{y}",
+					"Artifact Image Tag: %{customdata[0]}",
+					"Times Ran: %{customdata[1]}",
+					"URL: %{customdata[2]}",
+				]),
+                marker_color=next(palette)))
 
 	# Set title
 	fig.update_layout(
 		title_text="Time series with buggy code artifacts and detection rates."
+	)
+	fig.update_traces(
+		hovertemplate="<br>".join([
+			"Commit Fix Date: %{x}",
+			"Detection Rate: %{y}",
+			"Artifact Image Tag: %{customdata[0]}",
+			"Times Ran: %{customdata[1]}",
+			"URL: %{customdata[2]}",
+		])
 	)
 
 	# Add range slider
