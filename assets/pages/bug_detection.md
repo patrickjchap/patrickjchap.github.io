@@ -9,9 +9,22 @@ layout: default
 {% tabs log %}
 
 {% tab log Detection Rate - Code Diff %}
-```php
-var_dump('hello');
-```
+
+<html> 
+  <head> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("/assets/html/test_timeline.html"); 
+    });
+    </script> 
+  </head> 
+
+  <body> 
+     <div id="includedContent"></div>
+  </body> 
+</html>
+
+
 {% endtab %}
 
 {% tab log Detection Rate - Stack Trace %}
