@@ -1,0 +1,11 @@
+Artifact Image Tag,Methodology,Times Ran,Reports in Diff,Reports in Trace,Commit Fix Date,URL
+1c-syntax-bsl-language-server-32438380396,Baseline,20,65.00,80.00,2018-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+1c-syntax-bsl-language-server-32438380396,Data Flow,20,75.00,85.00,2018-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+1c-syntax-bsl-language-server-32438380396,Chain of Thought,20,70.00,90.00,2018-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+2c-syntax-bsl-language-server-32438380396,Baseline,20,65.00,100.00,2015-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+2c-syntax-bsl-language-server-32438380396,Data Flow,20,50.00,90.00,2015-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+2c-syntax-bsl-language-server-32438380396,Chain of Thought,20,60.00,85.00,2015-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+3c-syntax-bsl-language-server-32438380396,Baseline,20,60.00,80.00,2022-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+3c-syntax-bsl-language-server-32438380396,Data Flow,20,80.00,90.00,2022-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+3c-syntax-bsl-language-server-32438380396,Chain of Thought,20,85.00,100.00,2022-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+	
