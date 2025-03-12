@@ -1,85 +1,22 @@
-var data_example = [
-	[
-		"1c-syntax-bsl-language-server-32438380396",
-		"Baseline",
-		"20",
-		"13/20 (65.00%)",
-		"16/20 (80.00%)",
-		"2018-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"1c-syntax-bsl-language-server-32438380396",
-		"Data-Flow",
-		"20",
-		"14/20 (70.00%)",
-		"16/20 (80.00%)",
-		"2018-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"1c-syntax-bsl-language-server-32438380396",
-		"Chain-of-Thought",
-		"20",
-		"15/20 (75.00%)",
-		"18/20 (90.00%)",
-		"2018-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"2c-syntax-bsl-language-server-32438380396",
-		"Baseline",
-		"20",
-		"13/20 (65.00%)",
-		"16/20 (80.00%)",
-		"2015-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/2c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"2c-syntax-bsl-language-server-32438380396",
-		"Data-Flow",
-		"20",
-		"14/20 (70.00%)",
-		"16/20 (80.00%)",
-		"2015-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/2c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"2c-syntax-bsl-language-server-32438380396",
-		"Chain-of-Thought",
-		"20",
-		"15/20 (75.00%)",
-		"18/20 (90.00%)",
-		"2015-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/2c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"3c-syntax-bsl-language-server-32438380396",
-		"Baseline",
-		"20",
-		"13/20 (65.00%)",
-		"20/20 (80.00%)",
-		"2022-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/3c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"3c-syntax-bsl-language-server-32438380396",
-		"Data-Flow",
-		"20",
-		"14/20 (70.00%)",
-		"20/20 (80.00%)", "2022-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/3c-syntax-bsl-language-server-32438378016",
-	],
-	[
-		"3c-syntax-bsl-language-server-32438380396",
-		"Chain-of-Thought",
-		"20",
-		"15/20 (75.00%)",
-		"18/20 (90.00%)",
-		"2022-08-10T16:21:24Z",
-		"https://www.bugswarm.org/diffs/3c-syntax-bsl-language-server-32438378016",
-	],
-]
+function syncFetch(path) {
+	const request = new XMLHttpRequest();
+	request.open("GET", path, false); // `false` makes the request synchronous
+	request.send(null);
+
+	if (request.status === 200) {
+	  return request.responseText;
+	}
+	return null;
+}
+
+function text2CSV(text) {
+  const lines = text.split('\n').filter(line => line.trim() !== "");
+  return lines.map(line => line.split(','));
+}
+
+var data_example = text2CSV(syncFetch("/assets/csv/test_example.csv"));
+console.log(data_example)
+header = data_example.shift()
 
 var bug_detection = $('#detectiontable').DataTable({
 	columns: [

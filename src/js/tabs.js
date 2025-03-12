@@ -312,3 +312,19 @@ if (window.location.pathname.includes('related')) {
 $(document).ready( function() {
   $('#table').DataTable();
 });
+
+function reloadTraceHTML(ele, html_path) {
+  $("#includedContentTrace").load("/assets/html/test_trace_timeline.html"); 
+}
+function reloadDiffHTML(ele, html_path) {
+  $("#includedContentDiff").load("/assets/html/test_diff_timeline.html"); 
+}
+
+$("#plots-time-series-detection-rate---code-diff")[0].addEventListener(
+	"click",
+	reloadDiffHTML
+);
+$("#plots-time-series-detection-rate---stack-trace")[0].addEventListener(
+	"click",
+	reloadTraceHTML
+);

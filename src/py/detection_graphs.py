@@ -55,7 +55,7 @@ def generate_detection_rate_timeline(csv_filepath: str, output_path: str, compar
     fig.update_layout(
         title_text="Time series with buggy code artifacts and detection rates.",
         height=450,
-        width=900,
+        minreducedwidth=900,
     )
 #   fig.update_traces(
 #       hovertemplate="<br>".join([
