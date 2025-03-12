@@ -14,7 +14,8 @@
 
 {% seo %}
   </head>
-  <link rel="stylesheet" href="/content/css/tabs.css">
+  <link rel="stylesheet" href="/assets/css/tabs.css">
+  <link rel="stylesheet" href="/assets/css/stylechanges.css">
   <link rel="stylesheet", href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
 
   <body>
@@ -29,9 +30,9 @@
 
           <div class="topnav">
             <a id="index" href="/index.html">Home</a>
-            <a id="eval" href="/content/pages/bug_detection.html">Evaluation Data</a>
-            <a id="method" href="/content/pages/methodology.html">Methodology</a>
-            <a id="related" href="/content/pages/related.html">Related</a>
+            <a id="eval" href="/assets/pages/bug_detection.html">Evaluation Data</a>
+            <a id="method" href="/assets/pages/methodology.html">Methodology</a>
+            <a id="related" href="/assets/pages/related.html">Related</a>
           </div>
 
           {% if site.show_downloads %}
@@ -43,8 +44,12 @@
         </header>
     </div>
       
-
-    {{content}}
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        {{ content }}
+      </section>
+    </div>
 
     
     <!-- FOOTER  -->

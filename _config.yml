@@ -1,4 +1,5 @@
-title: Patrick Chapman Blog
+title: Lifelong Evaluation of Large Language Models 
+description: Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair. 
 github_username: patrickjchap
 remote_theme: pages-themes/slate@v0.2.0
 
