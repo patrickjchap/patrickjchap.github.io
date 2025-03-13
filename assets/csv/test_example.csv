@@ -1,0 +1,52 @@
+Artifact Image Tag,Methodology,Times Ran,Reports in Diff,Reports in Trace,Commit Fix Date,URL
+1c-syntax-bsl-language-server-32438378016,Baseline,20,0.6500,0.5000,2018-08-20T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+1c-syntax-bsl-language-server-32438378016,Data Flow,20,0.7500,0.3900,2018-08-20T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+1c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.7000,0.3100,2018-08-20T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+2c-syntax-bsl-language-server-32438378016,Baseline,20,0.6500,0.10000,2015-09-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+2c-syntax-bsl-language-server-32438378016,Data Flow,20,0.5000,0.600,2015-09-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+2c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.6600,0.3800,2015-09-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+3c-syntax-bsl-language-server-32438378016,Baseline,20,0.1600,0.1400,2022-10-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+3c-syntax-bsl-language-server-32438378016,Data Flow,20,0.1700,0.3900,2022-10-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+3c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.2600,0.10000,2022-10-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+4c-syntax-bsl-language-server-32438378016,Baseline,20,0.1600,0.5400,2023-11-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+4c-syntax-bsl-language-server-32438378016,Data Flow,20,0.3000,0.700,2023-11-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+4c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.5700,0.10000,2023-11-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+5c-syntax-bsl-language-server-32438378016,Baseline,20,0.3300,0.1200,2017-05-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+5c-syntax-bsl-language-server-32438378016,Data Flow,20,0.8100,0.4600,2017-05-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+5c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.4500,0.10000,2017-05-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+6c-syntax-bsl-language-server-32438378016,Baseline,20,0.4800,0.9500,2020-03-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+6c-syntax-bsl-language-server-32438378016,Data Flow,20,0.1100,0.8200,2020-03-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+6c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.3900,0.10000,2020-03-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+7c-syntax-bsl-language-server-32438378016,Baseline,20,0.3900,0.7600,2019-01-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+7c-syntax-bsl-language-server-32438378016,Data Flow,20,0.7700,0.1400,2019-01-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+7c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.1300,0.10000,2019-01-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+8c-syntax-bsl-language-server-32438378016,Baseline,20,0.7000,0.6200,2019-12-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+8c-syntax-bsl-language-server-32438378016,Data Flow,20,0.1500,0.500,2019-12-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+8c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.3400,0.10000,2019-12-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+9c-syntax-bsl-language-server-32438378016,Baseline,20,0.4900,0.3200,2021-02-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+9c-syntax-bsl-language-server-32438378016,Data Flow,20,0.9400,0.1100,2021-02-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+9c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.4200,0.10000,2021-02-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+10c-syntax-bsl-language-server-32438378016,Baseline,20,0.6600,0.100,2020-01-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+10c-syntax-bsl-language-server-32438378016,Data Flow,20,0.5400,0.1500,2020-01-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+10c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.300,0.10000,2020-01-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+11c-syntax-bsl-language-server-32438378016,Baseline,20,0.7200,0.2400,2022-06-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+11c-syntax-bsl-language-server-32438378016,Data Flow,20,0.1100,0.9000,2022-06-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+11c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.9300,0.10000,2022-06-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+12c-syntax-bsl-language-server-32438378016,Baseline,20,0.6100,0.100,2021-07-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+12c-syntax-bsl-language-server-32438378016,Data Flow,20,0.400,0.7800,2021-07-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+12c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.2800,0.10000,2021-07-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+13c-syntax-bsl-language-server-32438378016,Baseline,20,0.1700,0.5700,2024-11-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+13c-syntax-bsl-language-server-32438378016,Data Flow,20,0.1900,0.3600,2024-11-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+13c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.1500,0.10000,2024-11-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+14c-syntax-bsl-language-server-32438378016,Baseline,20,0.5000,0.4300,2016-09-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+14c-syntax-bsl-language-server-32438378016,Data Flow,20,0.5800,0.8400,2016-09-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+14c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.3700,0.10000,2016-09-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+15c-syntax-bsl-language-server-32438378016,Baseline,20,0.3900,0.2600,2018-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+15c-syntax-bsl-language-server-32438378016,Data Flow,20,0.4800,0.4900,2018-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+15c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.2900,0.10000,2018-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+16c-syntax-bsl-language-server-32438378016,Baseline,20,0.8100,0.7500,2017-10-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+16c-syntax-bsl-language-server-32438378016,Data Flow,20,0.6500,0.4400,2017-10-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+16c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.4900,0.10000,2017-10-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+17c-syntax-bsl-language-server-32438378016,Baseline,20,0.3300,0.8000,2022-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+17c-syntax-bsl-language-server-32438378016,Data Flow,20,0.4700,0.9700,2022-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
+17c-syntax-bsl-language-server-32438378016,Chain of Thought,20,0.8400,0.10000,2022-08-10T16:21:24Z,https://www.bugswarm.org/diffs/1c-syntax-bsl-language-server-32438378016
