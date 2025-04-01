@@ -292,7 +292,7 @@ $('#after').change(debounce(function() {
       .hide();
 }, 300));
 
-if (window.location.pathname.includes('bug_detection')) {
+if (window.location.pathname.includes('evaluation')) {
   var $ele = document.querySelector('#eval');
   $ele.classList.add('active');
 };
@@ -306,6 +306,10 @@ if (window.location.pathname.includes('index')) {
 };
 if (window.location.pathname.includes('related')) {
   var $ele = document.querySelector('#related');
+  $ele.classList.add('active');
+}
+if (window.location.pathname.includes('background')) {
+  var $ele = document.querySelector('#background');
   $ele.classList.add('active');
 };
 

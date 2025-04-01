@@ -16,6 +16,84 @@ palette = cycle(px.colors.qualitative.Plotly)
 
 COMPARISON_METHOD = {"Diff", "Trace"}
 
+def generate_detection_bar_plot(csv_filepath: str, output_path: str, comparison_method="Diff"):
+    assert comparison_method in COMPARISON_METHOD
+    print(comparison_method)
+
+    df = pd.read_csv(csv_filepath)
+    df = df.sort_values(by="Commit Fix Date")
+    df["LLM and Analysis Method"] = df.apply(lambda r: f"{r['LLM']} {r['Methodology']}", axis=1)
+
+    # Create figure
+    fig = px.histogram(
+        df, 
+        x=f"Bug Detection - {comparison_method}",
+        color="LLM and Analysis Method",
+        barmode="overlay",
+    )
+ 
+    # Set title
+    fig.update_layout(
+        title_text="Histogram where the buckets represent a bug detection rate for a LLM-based analysis and the count is the number of code artifacts in that bucket.",
+        height=750,
+        minreducedwidth=900,
+		xaxis=dict(tickformat=".0%", title="Detection Rate (%)"),
+		yaxis=dict(title="Number of Evaluated Code Artifacts"),
+		updatemenus=[
+			dict(
+				type="dropdown",
+				direction="down",
+				buttons=[
+					dict(
+						label="All",
+						method="update",
+						args=[{""}],
+					),
+					dict(
+						label="Before",
+					),
+					dict(
+						label="After",
+					)
+				]
+			)
+		]
+    )
+
+    fig.write_html(output_path)
+
+def generate_detection_rate_histogram(csv_filepath: str, output_path: str, comparison_method="Diff"):
+    assert comparison_method in COMPARISON_METHOD
+    print(comparison_method)
+
+    df = pd.read_csv(csv_filepath)
+    df = df.sort_values(by="Commit Fix Date")
+    df["LLM and Analysis Method"] = df.apply(lambda r: f"{r['LLM']} + {r['Methodology']}", axis=1)
+
+    # Create figure
+    fig = px.histogram(
+        df, 
+        x=f"Bug Detection - {comparison_method}",
+        color="LLM and Analysis Method",
+        barmode="overlay",
+    )
+ 
+    # Set title
+    fig.update_layout(
+        title_text="Histogram where the buckets represent a bug detection rate for a LLM-based analysis and the count is the number of code artifacts in that bucket.",
+        height=750,
+        minreducedwidth=900,
+		xaxis=dict(tickformat=".0%", title="Detection Rate (%)"),
+		yaxis=dict(title="Number of Evaluated Code Artifacts"),
+    )
+
+    fig.write_html(output_path)
+
+#def generate_pass_k_plot(csv_filepath: str, output_path: str):
+#
+#def generate_repair_summary_plot(csv_filepath: str, output_path: str):
+#
+
 def generate_detection_rate_timeline(csv_filepath: str, output_path: str, comparison_method="Diff"):
     assert comparison_method in COMPARISON_METHOD
     print(comparison_method)
@@ -54,18 +132,11 @@ def generate_detection_rate_timeline(csv_filepath: str, output_path: str, compar
     # Set title
     fig.update_layout(
         title_text="Time series with buggy code artifacts and detection rates.",
-        height=450,
+        height=750,
         minreducedwidth=900,
+		yaxis=dict(tickformat=".0%", title="Detection Rate (%)"),
+		xaxis=dict(title="Date of Passing Commit"),
     )
-#   fig.update_traces(
-#       hovertemplate="<br>".join([
-#           "Commit Fix Date: %{x}",
-#           "Detection Rate: %{y}",
-#           "Artifact Image Tag: %{customdata[0]}",
-#           "Times Ran: %{customdata[1]}",
-#           "URL: %{customdata[2]}",
-#       ])
-#   )
 
     # Add range slider
     fig.update_layout(
@@ -116,4 +187,4 @@ if __name__ == "__main__":
         output_path = os.path.abspath(sys.argv[1])
         if "diff" not in output_path:
             comparison_method = "Trace"
-    generate_detection_rate_timeline(csv_path, output_path, comparison_method)
+    generate_detection_rate_histogram(csv_path, output_path, comparison_method)

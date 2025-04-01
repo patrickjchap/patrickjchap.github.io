@@ -24,9 +24,13 @@ var bug_detection = $('#detectiontable').DataTable({
 			name: "tag",
 			title: 'Artifact Image Tag',
 		},
+        {
+			name: 'llm',
+			title: 'Selected LLM',
+		},
 		{
 			name: 'method',
-			title: 'LLM-based Analysis',
+			title: 'Analysis Method',
 		},
 		{
 			name: 'runs',
@@ -38,6 +42,10 @@ var bug_detection = $('#detectiontable').DataTable({
 		{
 			title: 'Reports Matching Trace',
 		},
+        {
+			name: 'knowledge',
+			title: 'LLM Knowledge Cutoff Date',
+		},
 		{
 			name: 'time',
 			title: 'Commit Fix Date',
@@ -46,7 +54,7 @@ var bug_detection = $('#detectiontable').DataTable({
 			name: 'url',
 			title: 'Diff URL',
 			render: function(data, type, row, meta) {
-				return '<a href="' + data + '">DIFF URL</a>';
+				return '<a href="' + data + '">' + data + '</a>';
 			},
 		},
 	],
@@ -54,8 +62,10 @@ var bug_detection = $('#detectiontable').DataTable({
 	rowsGroup: [// Always the array (!) of the column-selectors in specified order to which rows groupping is applied
 				// (column-selector could be any of specified in https://datatables.net/reference/type/column-selector)
 		'tag:name',
-		'runs:name',
+        'llm:name',
 		'time:name',
+		'knowledge:name',
+		'runs:name',
 		'url:name',
 	],
 })

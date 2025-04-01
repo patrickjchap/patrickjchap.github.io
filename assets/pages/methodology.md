@@ -1,3 +1,8 @@
+---
+layout: default
+---
+
+
 # Methodology
 
 Traditional static analyzers have been used to automatically detect potential
@@ -41,5 +46,34 @@ been introduced in other works:
    NPE bug detection. Based on the previous analysis runs, the result can then
    be fed to the LLM as context in the prompt. In the context of NPE detection,
    this can help indicate what other function calls may unsanitized.
+
+## Evaluation Framework
+
+Our evaluation framework is primarily concerned with the software development
+tasks of bug detection and progam repair. There have been numerous LLM-based
+approaches that have claimed great success when evaluating on many of the
+popular evaluation datasets. However, these datasets often have drawbacks
+such as: triviality, static data, lack of real-world context, and 
+
+Trivial problems provide a great sanity check, as a quality LLM should still
+solve the problem. However, there becomes an issue when a large number of
+the overall problems in the dataset are considered trivial.
+
+Static datasets can potentially consist of high-quality problems for evaluation;
+however, there is concern with the fact that as LLMs are continuously trained on
+newer data, that the LLM may ingest potentially relevant data that may cause
+the evaluation to be considered contaminated. Detecting the possibility of
+data contamination in an evaluation is a challenging problem, as many of these
+LLMs do not make it publically available as to their training data strategy. 
+In fact, there have been several works introduced to explore the detection of
+data contamination in certain LLM-related tasks, leveraging various metrics
+such as edit distance [[Dong et al.](https://arxiv.org/abs/2402.15938),].
+
+Lack of real-world context is also a prevailing issue in many of these datasets.
+Often, software development scenarios involve a developer working in a large
+codebase with many specific idiosyncratic practices. Having a dataset that
+relies too much on competitive style programming problems may demonstrate
+some great capabilities, but do not represent much of real software development
+that is often making use of various internal abstractions.
 
 
