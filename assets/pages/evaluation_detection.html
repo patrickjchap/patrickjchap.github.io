@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <meta name="description" content="Lifelong Evaluation of Large Language Models : Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="/src/js/dataTables.rowsGroup.js"></script>
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lifelong Evaluation of Large Language Models | Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lifelong Evaluation of Large Language Models" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair." />
+<meta property="og:description" content="Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair." />
+<meta property="og:site_name" content="Lifelong Evaluation of Large Language Models" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lifelong Evaluation of Large Language Models" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.","headline":"Lifelong Evaluation of Large Language Models","url":"/assets/pages/evaluation_detection.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <link rel="stylesheet" href="/assets/css/tabs.css">
+  <link rel="stylesheet" href="/assets/css/stylechanges.css">
+  <link rel="stylesheet", href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="">View on GitHub</a>
+
+          <h1 id="project_title">Lifelong Evaluation of Large Language Models</h1>
+          <h2 id="project_tagline">Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.</h2>
+
+          <div class="topnav">
+            <a id="index" href="/index.html">Home</a>
+            <a id="background" href="/assets/pages/background.html">Background</a>
+            <a id="method" href="/assets/pages/methodology.html">Methodology</a>
+            <a id="eval" href="/assets/pages/evaluation.html">Evaluation Data</a>
+            <a id="related" href="/assets/pages/related.html">Related Work</a>
+          </div>
+
+          
+        </header>
+    </div>
+      
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <ul id="sections" class="tab" data-tab="8c15ac6d-253d-4272-b913-50de4b577207" data-name="sections">
+  
+      <li class="active" id="sections-about-the-evaluation">
+          <a href="#">About the Evaluation </a>
+      </li>
+  
+      <li id="sections-bug-detection-data">
+          <a href="#">Bug Detection Data </a>
+      </li>
+  
+      <li id="sections-program-repair-data">
+          <a href="#">Program Repair Data </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="8c15ac6d-253d-4272-b913-50de4b577207" data-name="sections">
+  
+      <li class="active">
+<p>To demonstrate our LLM evaluation framework, we measure the performance of
+various LLM-based approaches performing the task of bug detection and program
+repair. For the presented evaluation, we select real-world bugs from open-source
+projects that have been mined via BugSwarm. Specifically, we select source
+code artifacts that contain null pointer dereference bugs in Java and type
+errors in Python. We are able to select these code artifacts automatically,
+as BugSwarm automatically tracks the types of Exceptions and Errors that occur
+during executing the various tests that are ran through the project’s 
+continous integration (CI) pipeline.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Example of potential null pointer dereference bug when dealing with inheritance.</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Superclass</span> <span class="o">{</span>
+  <span class="n">protect</span> <span class="nc">String</span> <span class="n">data</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">processData</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">());</span> <span class="c1">// NPE if data is uninitialized!</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Subclass</span> <span class="kd">extends</span> <span class="nc">Superclass</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="nf">Subclass</span> <span class="o">(</span><span class="nc">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">();</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+    <span class="n">processData</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>For <strong>bug detection</strong>, there is a high-likelihood that many bug report warnings
+are generated that are unrelated to the particular bug-of-interest that is
+reported in the stack trace. To determine if a particular report is related to
+the bug in the stack trace, we leverage two techniques originally introduced
+by <a href="https://ieeexplore.ieee.org/document/9678535">Tomassi et al.</a>: (1) checking
+against the code diff and (2) checking against the stack trace. That is, if a
+particular bug report overlaps with the code diff or stack trace, then we count
+that bug as detected. In the case of using the code diff, this can represent
+an over-approximation of the expected performance, as code diffs often contain
+compeletely unrelated code. On the other hand, using the stack trace can often
+be an under-approximation, as null pointers relating to external factors like
+I/O may not be captured.</p>
+
+<p>In regards to <strong>program repair</strong>, we task the LLM with fixing the bug in the
+source code artifact. We feed the source code file from the buggy version
+of the source code artifact to the LLM, asking for a patch to fix the bug. We
+compare this fix against the code diff that causes the subsequent passing code
+artifact to pass CI. In our case, we capture the CodeBLEU metric, but can also
+capture the pass@k metric as well. One of the major advantages that we have
+in leveraging BugSwarm is that we obtain an environment that is reproducible.
+This means that can apply the patch automatically and run the unit tests to
+check if they pass.</p>
+
+<p>If you wish to read more on the specific methodology on how we each part of
+the evaluation framework runs, please visit the
+<a href="/assets/pages/methodology.html">methodology</a> section.</p>
+
+</li>
+  
+      <li>
+<h1 id="bug-detection">Bug Detection</h1>
+<h2 id="plots">Plots</h2>
+
+<ul id="plots" class="tab" data-tab="a21e6549-ef15-4851-a3f9-d3a1753293a2" data-name="plots">
+  
+      <li class="active" id="plots-time-series-detection-rate---code-diff">
+          <a href="#">Time Series Detection Rate - Code Diff </a>
+      </li>
+  
+      <li id="plots-time-series-detection-rate---stack-trace">
+          <a href="#">Time Series Detection Rate - Stack Trace </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="a21e6549-ef15-4851-a3f9-d3a1753293a2" data-name="plots">
+  
+      <li class="active">
+<html> 
+  <head> 
+    <script> 
+    $(function(){
+      $("#includedContentDiff").load("/assets/html/test_diff_timeline.html"); 
+    });
+    </script> 
+  </head> 
+
+  <body> 
+     <div id="includedContentDiff"></div>
+  </body> 
+</html>
+
+</li>
+  
+      <li>
+<html> 
+  <head> 
+    <script> 
+    $(function(){
+      $("#includedContentTrace").load("/assets/html/test_trace_timeline.html"); 
+    });
+    </script> 
+  </head> 
+
+  <body> 
+     <div id="includedContentTrace"></div>
+  </body> 
+</html>
+
+</li>
+  
+</ul>
+
+<h3 id="table-data">Table Data</h3>
+
+<table id="detectiontable" class="display"></table>
+
+</li>
+  
+      <li>
+</li>
+  
+</ul>
+
+
+      </section>
+    </div>
+
+    
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+      
+  <script src="/src/js/tabs.js"></script>
+  <script src="/src/js/tables.js"></script>
+  <script src="/src/js/sorttable.js"></script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <meta name="description" content="Lifelong Evaluation of Large Language Models : Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="/src/js/dataTables.rowsGroup.js"></script>
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lifelong Evaluation of Large Language Models | Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lifelong Evaluation of Large Language Models" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair." />
+<meta property="og:description" content="Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair." />
+<meta property="og:site_name" content="Lifelong Evaluation of Large Language Models" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lifelong Evaluation of Large Language Models" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.","headline":"Lifelong Evaluation of Large Language Models","url":"/assets/pages/methodology.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <link rel="stylesheet" href="/assets/css/tabs.css">
+  <link rel="stylesheet" href="/assets/css/stylechanges.css">
+  <link rel="stylesheet", href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="">View on GitHub</a>
+
+          <h1 id="project_title">Lifelong Evaluation of Large Language Models</h1>
+          <h2 id="project_tagline">Evaluating Code LLMs against real-world code artifacts in tasks such as bug detection and program repair.</h2>
+
+          <div class="topnav">
+            <a id="index" href="/index.html">Home</a>
+            <a id="background" href="/assets/pages/background.html">Background</a>
+            <a id="method" href="/assets/pages/methodology.html">Methodology</a>
+            <a id="eval" href="/assets/pages/evaluation.html">Evaluation Data</a>
+            <a id="related" href="/assets/pages/related.html">Related Work</a>
+          </div>
+
+          
+        </header>
+    </div>
+      
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="methodology">Methodology</h1>
+
+<p>Traditional static analyzers have been used to automatically detect potential
+bugs in source code such as <a href="https://github.com/uber/NullAway">NullAway</a> 
+and <a href="https://spotbugs.github.io/">SpotBugs</a>. Static analyzers, while frequently
+used with great success in real world software development, often have various
+limitations. For example, it is often the case that the formal reasoning applied
+to learn program semantics relies on approximations. Otherwise, exhaustively
+learning all relevant program facts can require running the program itself to
+explore all paths.</p>
+
+<h2 id="null-pointer-de-reference-detection">Null Pointer De-reference Detection</h2>
+
+<p>A particular bug of interest that is often targeted by static analyzers is
+null pointer de-reference bugs, i.e., null pointer exceptions (NPE) in Java.
+These bugs occur when a piece of code unintentionally de-references a null
+pointer, usually performing an action such as calling a method when the object
+is set to NULL. Various approaches have demonstrated some success in detecting
+these types of bugs, but as demonstrated in a study by <a href="https://web.cs.ucdavis.edu/~rubio/includes/ase21.pdf">Tomassi et al.</a>,
+these tools suffer from both a significant number of false positives and the majority
+number of real NPE bugs being missed.</p>
+
+<p>As such, there have been several approaches introduced that leverage both features
+of traditional static analyzers and LLMs to improve bug finding capabilities. Since
+our evaluation of LLM-based approaches is agnostic to a particular framework, we
+can compare any number of LLM-based approaches as long as the bug reports are
+parseable. For NPEs, we take a look at four particular methodologies that have
+been introduced in other works:</p>
+
+<ol>
+  <li>Baseline: Includes a prompt that asks the language model to report the code
+snippets that introduce a null pointer de-reference bug.</li>
+  <li>Data-flow: This prompt is constructed by introducing the problem as a data-flow
+analysis. The agent is tasked with providing learned facts such as data-flow,
+sanitizers, and data sanitization. This is then used to report particular
+code snippets where null pointers are improperly sanitized, i.e. checked.</li>
+  <li>Chain-of-Thought: Leverages the specific CWE provided description of a
+null pointer de-reference, as well as several chain-of-thought demonstrative
+exemplars.</li>
+  <li>Chain-of-Thought with Call Graph: Similar to the previous example, except
+also calculates the program-under-analysis’ call graph before running the
+NPE bug detection. Based on the previous analysis runs, the result can then
+be fed to the LLM as context in the prompt. In the context of NPE detection,
+this can help indicate what other function calls may unsanitized.</li>
+</ol>
+
+<h2 id="evaluation-framework">Evaluation Framework</h2>
+
+<p>Our evaluation framework is primarily concerned with the software development
+tasks of bug detection and progam repair. There have been numerous LLM-based
+approaches that have claimed great success when evaluating on many of the
+popular evaluation datasets. However, these datasets often have drawbacks
+such as: triviality, static data, lack of real-world context, and</p>
+
+<p>Trivial problems provide a great sanity check, as a quality LLM should still
+solve the problem. However, there becomes an issue when a large number of
+the overall problems in the dataset are considered trivial.</p>
+
+<p>Static datasets can potentially consist of high-quality problems for evaluation;
+however, there is concern with the fact that as LLMs are continuously trained on
+newer data, that the LLM may ingest potentially relevant data that may cause
+the evaluation to be considered contaminated. Detecting the possibility of
+data contamination in an evaluation is a challenging problem, as many of these
+LLMs do not make it publically available as to their training data strategy. 
+In fact, there have been several works introduced to explore the detection of
+data contamination in certain LLM-related tasks, leveraging various metrics
+such as edit distance [<a href="https://arxiv.org/abs/2402.15938">Dong et al.</a>,].</p>
+
+<p>Lack of real-world context is also a prevailing issue in many of these datasets.
+Often, software development scenarios involve a developer working in a large
+codebase with many specific idiosyncratic practices. Having a dataset that
+relies too much on competitive style programming problems may demonstrate
+some great capabilities, but do not represent much of real software development
+that is often making use of various internal abstractions.</p>
+
+
+      </section>
+    </div>
+
+    
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+      
+  <script src="/src/js/tabs.js"></script>
+  <script src="/src/js/tables.js"></script>
+  <script src="/src/js/sorttable.js"></script>
+  </body>
+</html>
