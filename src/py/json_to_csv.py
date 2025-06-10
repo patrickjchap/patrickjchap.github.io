@@ -11,7 +11,7 @@ GPT_NAME_TO_CUTOFF_DATE = {
     "gpt-4.1-mini-2025-04-14": "2025-04-14",
     "gpt-4.1-nano-2025-04-14": "2025-04-15"
 }
-BUGSWARM_TOKEN = "3XaLUvtp7qbwdktVpiz5mKWki-TS_OAsaHtsK2nICT4"
+BUGSWARM_TOKEN = "YOUR-API-KEY"
 
 """ CSV FORMAT
 
