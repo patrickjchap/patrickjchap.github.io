@@ -295,7 +295,11 @@ $('#after').change(debounce(function() {
 if (window.location.pathname.includes('evaluation')) {
   var $ele = document.querySelector('#eval');
   $ele.classList.add('active');
-};
+}
+if (window.location.pathname.includes('dataset')) {
+  var $ele = document.querySelector('#dataset');
+  $ele.classList.add('active');
+}
 if (window.location.pathname.includes('methodology')) {
   var $ele = document.querySelector('#methodology');
   $ele.classList.add('active');
@@ -304,10 +308,6 @@ if (window.location.pathname.includes('index')) {
   var $ele = document.querySelector('#index');
   $ele.classList.add('active');
 };
-if (window.location.pathname.includes('related')) {
-  var $ele = document.querySelector('#related');
-  $ele.classList.add('active');
-}
 if (window.location.pathname.includes('background')) {
   var $ele = document.querySelector('#background');
   $ele.classList.add('active');
@@ -316,19 +316,3 @@ if (window.location.pathname.includes('background')) {
 $(document).ready( function() {
   $('#table').DataTable();
 });
-
-function reloadTraceHTML(ele, html_path) {
-  $("#includedContentTrace").load("/assets/html/test_trace_timeline.html"); 
-}
-function reloadDiffHTML(ele, html_path) {
-  $("#includedContentDiff").load("/assets/html/test_diff_timeline.html"); 
-}
-
-$("#plots-time-series-detection-rate---code-diff")[0].addEventListener(
-	"click",
-	reloadDiffHTML
-);
-$("#plots-time-series-detection-rate---stack-trace")[0].addEventListener(
-	"click",
-	reloadTraceHTML
-);
