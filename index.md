@@ -2,28 +2,50 @@
 layout: default 
 ---
 
-With the ever increasing demand for large language models (LLM) to be streamlined
-into the software development cycle, there have been numerous approaches that
-explore areas such as bug detection and program repair. Traditional approaches
-incorporate various static analyses or leverage verification techniques to
-accomplish these tasks. However, these methods are often based on approximations
-about program behavior or only applicable to certain programming patterns. The
-development of these tools can often take considerable effort as well to model
-the problem. These challenges have motivated the use of LLMs to assist in these
-tasks, as the starting cost of incorporating an already existing language model
-to analyze source code is low while also being the case that the LLM itself is
-agnostic to any particular programming pattern.
+<img src="/assets/images/workflow.png" alt="">
+<figcaption>Fig. 1: The workflow for evaluating LLM-based bug detectors.</figcaption>
 
-While it is an exciting time to explore the various use cases that these LLMs
+With the explosion of popularity among the various code large language models
+(LLM), there have been numerous techniques introduced to automatically perform
+software development tasks such as bug finding and fixing. Many of the
+well-established benchmarks for evaluating code LLMs are based on small-scale
+problem solving starting from scratch, similar to what one might see in a
+technical coding interview. These of course can be beneficial into providing
+insight as to the LLMs reasoning capabilities, but have several potential
+shortcomings such as often being static and not involving real-world software
+systems.
 
-This site presents the data and methodology for our work on the lifelong
-evaluation of large language models (LLM). In particular, this work demonstrates
-the evaluation of code LLMs performing tasks such as bug detection and program
-repair on real-world code artifacts. These code artifacts are continuously mined
-using the [BugSwarm](https://www.bugswarm.org) framework, which allows us to select
-code artifacts that demonstrate various types of bugs. BugSwarm is especially useful
-because these code artifacts are mined in pass and failing pairs, providing
-relevant data such as code diffs that enable our evaluation to compare bug
-reports and suggested patches from any LLM-based technique.
+Many of the available LLMs do not make the entirety of their training set
+available, meaning that there are often no guarantees as to what a model may have
+knowledge of. It may the case that certain samples from a benchmark may be
+either used as training data, either directly or indirectly. There have been
+efforts to overcome this problem by crafting examples that are newer than the
+given LLM's training knowledge cutoff date, but as newer iterations of these
+models are made available, the knowledge cutoff date may advance. 
 
-[Bug Detection](/assets/pages/bug_detection.md)
+It is also the case that a lot of the popular benchmarks that exist are not
+representative of real software. This has been addressed by several other
+works, e.g., leveraging real-world bug datasets, but these still suffer from
+the issue of the datasets being static.
+
+We attempt to address some of these concerns by introducing our framework
+for performing lifelong evaluations of large language models. In particular,
+we evaluate LLM-based approaches in performing both bug detection and
+program repair. We leverage the BugSwarm framework to select relevant code
+artifacts that contain real-world buggy and fixed versions of open-source code
+projects. BugSwarm is beneficial, as it contains a myriad of artifacts already
+available for evaluation, but can also be used to mine newer repositories on
+GitHub. This means that we can contiously extract real-world artifacts that
+contain bugs that we can use to evaluate LLM-based approaches. We can then
+compare the relative performance of the LLMs and check their performance comparing
+the commit fix date against the LLM training cutoff date.
+
+In the [background](/assets/pages/background.html) section of this site we
+provide preliminary information on various metrics used, current evaluation
+strategies, bug detection, program repair, and BugSwarm. In our [methodology](/assets/pages/methodology.html)
+section, we provide the workflow of our approach and explain how evaluation is
+performed. We then provide some evaluation results on various LLM-based approaches
+using our evaluation framework in the [detection evaluation](/assets/pages/evaluation_detection.html)
+and [repair evaluation](/assets/pages/evaluation_repair.html) sections. Finally,
+our [related works](/assets/pages/related.html) section provides related research
+into this area.
