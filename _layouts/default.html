@@ -11,6 +11,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
     <script src="/src/js/dataTables.rowsGroup.js"></script>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['\\(','\\)'], ['$', '$']]
+      }
+    });
+	</script>
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 {% seo %}
   </head>
@@ -32,8 +41,8 @@
             <a id="index" href="/index.html">Home</a>
             <a id="background" href="/assets/pages/background.html">Background</a>
             <a id="method" href="/assets/pages/methodology.html">Methodology</a>
-            <a id="eval" href="/assets/pages/evaluation.html">Evaluation Data</a>
-            <a id="related" href="/assets/pages/related.html">Related Work</a>
+            <a id="dataset" href="/assets/pages/dataset.html">NPE Dataset</a>
+            <a id="eval" href="/assets/pages/evaluation_detection.html">NPE Detection Evaluation</a>
           </div>
 
           {% if site.show_downloads %}
